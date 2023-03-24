@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  db:
+    image: database
+  words: 
+    image: words
+    depends_on:
+      - db
+  web:
+    image: webserver
+    ports: 
+      - 8081:80
+    depends_on:
+      - words
+      - db
+    
+ 
+  
